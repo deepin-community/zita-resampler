@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/architecture.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
+export PREFIX=/usr
+export LIBDIR=$(PREFIX)/lib/$(DEB_HOST_MULTIARCH)
+export DESTDIR=$(CURDIR)/debian/tmp
+
+ifeq ($(DEB_HOST_ARCH),$(filter $(DEB_HOST_ARCH),amd64 x32))
+	CPPFLAGS += -DENABLE_SSE2
+endif
+
+%:
+	dh $@ -Dsource -Dapps
+
+override_dh_auto_clean:
+	dh_auto_clean
+	$(MAKE) -C apps/ clean
+	$(MAKE) -C source/ clean
+	
+override_dh_auto_build:
+	dh_auto_build -Dsource -- DESTDIR=$(DESTDIR)
+	dh_auto_build -Dapps -- DESTDIR=$(DESTDIR)
+
+override_dh_auto_install:
+	dh_auto_install
+	$(MAKE) -C source/ DESTDIR=$(DESTDIR) install
+	$(MAKE) -C apps/ DESTDIR=$(DESTDIR) install
+	dh_install -plibzita-resampler-doc docs/* usr/share/doc/libzita-resampler-doc/docs/
+
+override_dh_installchangelogs:
+	dh_installchangelogs README

@@ -1,0 +1,151 @@
+zita-resampler (1.8.0-2) unstable; urgency=medium
+
+  * Fix the SSE2 excluding in d/rules
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Sat, 02 Jan 2021 22:14:01 +0100
+
+zita-resampler (1.8.0-1) unstable; urgency=medium
+
+  * New upstream version 1.8.0
+  * Refresh makefile patch
+  * Remove SSE2 patch, (mostly) applied by upstream
+  * Enable SSE2 only for amd64 and x32
+  * Fix spell error in the documentation
+  * Bump dh-compat to 13
+  * Bump S-V to 4.5.1
+  * Update d/copyright years
+  * Remove unneeded build flags in d/rules
+  * Include architecture.mk instead of calling dpkg-architecture
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Sat, 02 Jan 2021 17:14:38 +0100
+
+zita-resampler (1.6.2-2) unstable; urgency=medium
+
+  * Fix FTCBFS (Closes: #950705) Thanks to Helmut Grohne!
+  * Add me as an uploader
+  * Fix build
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Sun, 15 Mar 2020 17:07:31 +0100
+
+zita-resampler (1.6.2-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Felipe Sateler ]
+  * d/control: change maintainer address to debian-multimedia@lists.debian.org
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+
+  [ Dennis Braun ]
+  * New upstream version 1.6.2
+  * d/control:
+    + Use debhelper-compat instead of debian/compat
+    + Bump dh-compat to 12
+    + Bump Standards-Version to 4.5.0
+    + Set RRR: no
+    + Use https protocol for homepage
+    + Update dithering URL in description
+    + Set Multi-Arch: foreign for libzita-resampler-doc
+  * Drop d/*.1 and install the ones from upstream
+  * d/copyright: Update year, http > https & add myself
+  * Fix libzita-resampler-doc installation
+  * d/patches: Update patchset
+  * d/rules:
+    + Add more exports to make the build work
+    + Update installation
+    + Replace libs/ with source/
+    + Add Steinar's patch to enable SSE-optimizing resampling of stereo
+      signals (Closes: #832095)
+  * d/source/local-options: Drop, obsolete
+  * d/watch: Use https protocol
+
+ -- Dennis Braun <d_braun@kabelmail.de>  Mon, 03 Feb 2020 20:45:07 +0100
+
+zita-resampler (1.6.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Remove myself from the Uploaders field.
+
+ -- Alessio Treglia <alessio@debian.org>  Tue, 01 Nov 2016 18:35:32 +0000
+
+zita-resampler (1.6.0-1) unstable; urgency=medium
+
+  [ Alessio Treglia ]
+  * Remove obsolete DM-Upload-Allowed field.
+
+  [ Jaromír Mikeš ]
+  * New upstream version 1.6.0
+  * Patch refreshed.
+  * Bump Standards.
+  * Fix VCS fields.
+  * Set dh/compat 10.
+  * Drop dbg package in favour of dbgsym.
+  * Fix some hardening.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Mon, 17 Oct 2016 04:22:44 +0200
+
+zita-resampler (1.3.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * Fix VCS canonical URLs.
+  * Bump Standards.
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 08 May 2013 08:51:26 +0200
+
+zita-resampler (1.3.0-1) experimental; urgency=low
+
+  * New upstream release.
+  * Update copyright file.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 27 Oct 2012 10:52:02 +0200
+
+zita-resampler (1.2.0-1) experimental; urgency=low
+
+  [ Jaromír Mikeš ]
+  * New upstream release.
+  * Bump Standards.
+  * Set debhelper 9.
+  * Added man pages for new binary zita-retune.
+
+  [ Alessio Treglia ]
+  * Set DM-Upload-Allowed: yes.
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Tue, 02 Oct 2012 10:16:42 +0100
+
+zita-resampler (1.1.0-2) unstable; urgency=low
+
+  * Remove -march=native.
+
+ -- Alessio Treglia <alessio@debian.org>  Tue, 07 Feb 2012 23:42:53 +0100
+
+zita-resampler (1.1.0-1) unstable; urgency=low
+
+  [ Jaromír Mikeš ]
+  * New upstream release.
+  * Add myself as uploader.
+  * Refreshed patches.
+
+  [ Alessio Treglia ]
+  * Bump SONAME.
+  * Switch -dev package to Architecture: any.
+  * Build with MUlti-Arch.
+  * Use a custom LIBDIR for a Multiarch compliant installation of
+    the shared objects.
+  * Strip documentation out of the -DEV runtime and put it into a new
+    libzita-resampler-doc package.
+  * Make libzita-resampler-dev suggest libzita-resampler-doc.
+  * Make zita-resampler-dbg containing the debugging symbols for
+    libzita-resampler1 only.
+  * Update debian/copyright.
+  * Fix homepage field.
+  * Bump Standards.
+
+ -- Alessio Treglia <alessio@debian.org>  Sun, 05 Feb 2012 22:54:12 +0100
+
+zita-resampler (0.1.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #600831).
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 20 Oct 2010 15:46:02 +0200

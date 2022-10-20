@@ -1,0 +1,3 @@
+version=4
+https://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html \
+	zita-resampler-(.*)\.tar\.bz2

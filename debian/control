@@ -1,0 +1,85 @@
+Source: zita-resampler
+Section: sound
+Priority: optional
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Uploaders:
+ Dennis Braun <d_braun@kabelmail.de>,
+ Jaromír Mikeš <mira.mikes@seznam.cz>
+Build-Depends:
+ debhelper-compat (= 13),
+ libsndfile1-dev
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/multimedia-team/zita-resampler.git
+Vcs-Browser: https://salsa.debian.org/multimedia-team/zita-resampler
+Homepage: https://kokkinizita.linuxaudio.org/linuxaudio/zita-resampler/resampler.html
+Rules-Requires-Root: no
+
+Package: libzita-resampler-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ libzita-resampler1 (= ${binary:Version}),
+ ${misc:Depends}
+Suggests: libzita-resampler-doc
+Description: Development files (headers) for libzita-resampler library
+ Zita resampler is a C++ library for resampling audio signals. It is
+ designed to be used within a real-time processing context, to be
+ fast, and to provide high-quality sample rate conversion.
+ .
+ This package contains the headers used to build applications
+ that use libzita-resampler.
+
+Package: libzita-resampler-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends}
+Description: Developers reference for libzita-resampler library
+ Zita resampler is a C++ library for resampling audio signals. It is
+ designed to be used within a real-time processing context, to be
+ fast, and to provide high-quality sample rate conversion.
+ .
+ This package contains libzita-resampler API reference.
+
+Package: libzita-resampler1
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: C++ library for resampling audio signals
+ Zita resampler is a C++ library for resampling audio signals. It is
+ designed to be used within a real-time processing context, to be
+ fast, and to provide high-quality sample rate conversion.
+ .
+ The library operates on signals represented in single-precision
+ floating point format. For multichannel operation both the input and
+ output signals are assumed to be stored as interleaved samples.
+ .
+ The API allows a trade-off between quality and CPU load. For the
+ latter a range of approximately 1:6 is available. Even at the
+ highest quality setting libzita-resampler will be faster than most
+ similar libraries, e.g. libsamplerate.
+ .
+ This package contains the shared library for libzita-resampler.
+
+Package: zita-resampler
+Architecture: any
+Depends:
+ libzita-resampler1 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: resampler application written with libzita-resampler
+ Input format is any file readable by libsndfile, output is either WAV
+ (WAVEX for more than 2 channels)  or CAF. Apart from resampling, users
+ can change the sample format to 16-bit, 24-bit or float, and for 16-bit
+ output, add dithering.
+ .
+ Available dithering types are rectangular, triangular and Lipschitz'
+ optimised error feedback filter. Some examples of dithering can be seen
+ here:
+ https://kokkinizita.linuxaudio.org/linuxaudio/dithering.html

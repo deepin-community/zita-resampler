@@ -1,0 +1,9 @@
+Document: libzita-resampler
+Title: Zita-resampler Developer's Reference
+Author: Fons Adriaensen <fons@kokkinizita.net>
+Abstract: This is a programming manual for the libzita-resampler library.
+Section: Programming
+
+Format: HTML
+Index: /usr/share/doc/libzita-resampler-doc/docs/resampler.html
+Files: /usr/share/doc/libzita-resampler-doc/docs/*
